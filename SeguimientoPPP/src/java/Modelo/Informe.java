@@ -14,42 +14,63 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author Alberto
  */
+@XmlRootElement
 @Entity
 @Table(name = "Informe")
 
 public class Informe implements Serializable{
+    @XmlElement
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "nroInforme")
     private int nroInforme;
+    @XmlElement
     @Basic
     @Column(name = "nombreEmpresa")
     private String nombreEmpresa;
+    @XmlElement
     @Basic
     @Column(name = "nombreDocenteAsesor")
     private String nombreDocenteAsesor;
+    @XmlElement
     @Basic
     @Column(name = "nombreEstudiante")
     private String nombreEstudiante;
+    @XmlElement
     @Basic
     @Column(name = "fechaInicioPPP")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar fechaInicioPPP;
+    @XmlElement
     @Basic
     @Column(name = "fechaFinPPP")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar fechaFinPPP;
+    @XmlElement
     @Basic
     @Column(name = "nroCarta")
     private int nroCarta;
-
+    @XmlTransient
+    @ManyToOne
+    @JoinColumn(name = "esRealizado", referencedColumnName = "codigoEstudiante")
+    private Estudiante esRealizado;
+    @XmlTransient
+    @ManyToOne
+    @JoinColumn(name = "esEvaluado", referencedColumnName = "carreraProfesional")
+    private Coordinacion esEvaluado;
+    
     public Informe() {
     }
 
@@ -108,6 +129,21 @@ public class Informe implements Serializable{
     public void setNroCarta(int nroCarta) {
         this.nroCarta = nroCarta;
     }
-    
+
+    public Estudiante getEsRealizado() {
+        return esRealizado;
+    }
+
+    public void setEsRealizado(Estudiante esRealizado) {
+        this.esRealizado = esRealizado;
+    }
+
+    public Coordinacion getEsEvaluado() {
+        return esEvaluado;
+    }
+
+    public void setEsEvaluado(Coordinacion esEvaluado) {
+        this.esEvaluado = esEvaluado;
+    }
     
 }

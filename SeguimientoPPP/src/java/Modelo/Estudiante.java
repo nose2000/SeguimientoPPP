@@ -7,39 +7,63 @@
 package Modelo;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author Alberto
  */
+@XmlRootElement
 @Entity
 @Table(name = "Estudiante")
 
 public class Estudiante implements Serializable {
+    @XmlElement
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigoEstudiante")
     private String codigoEstudiante;
+    @XmlElement
     @Basic
     @Column(name = "nombre")
     private String nombre;
+    @XmlElement
     @Basic
     @Column(name = "carreraProfesional")
     private String carreraProfesional;
+    @XmlElement
     @Basic
     @Column(name = "nroCreditos")
     private int nroCreditos;
+    @XmlElement
     @Basic
     @Column(name = "rankingEstudiante")
     private int rankingEstudiante;
-
+    @XmlTransient
+    @OneToMany(mappedBy = "esRealizado")
+    private List<Informe> realiza;  
+    @XmlTransient
+    @OneToMany(mappedBy = "esHecha")
+    private List<SolicitudPPP> hace; 
+    @XmlTransient
+    @OneToMany(mappedBy = "esTramitada")
+    private List<CartaAutorizacion> tramita; 
+    @XmlTransient
+    @OneToMany(mappedBy = "esSolicitada")
+    private List<FichaSeguimiento> solicita; 
+    
     public Estudiante() {
     }
 
@@ -82,6 +106,49 @@ public class Estudiante implements Serializable {
     public void setRankingEstudiante(int rankingEstudiante) {
         this.rankingEstudiante = rankingEstudiante;
     }
-    
-    
+
+    public List<Informe> getRealiza() {
+        if ( this.realiza == null) {
+            this.realiza = new ArrayList<>();
+        }
+        return realiza;
+    }
+
+    public void setRealiza(List<Informe> realiza) {
+        this.realiza = realiza;
+    }
+
+    public List<SolicitudPPP> getHace() {
+         if ( this.hace == null) {
+            this.hace = new ArrayList<>();
+        }
+        return hace;
+    }
+
+    public void setHace(List<SolicitudPPP> hace) {
+        this.hace = hace;
+    }
+
+    public List<CartaAutorizacion> getTramita() {
+         if ( this.tramita == null) {
+            this.tramita = new ArrayList<>();
+        }
+        return tramita;
+    }
+
+    public void setTramita(List<CartaAutorizacion> tramita) {
+        this.tramita = tramita;
+    }
+
+    public List<FichaSeguimiento> getSolicita() {
+         if ( this.solicita == null) {
+            this.solicita = new ArrayList<>();
+        }
+        return solicita;
+    }
+
+    public void setSolicita(List<FichaSeguimiento> solicita) {
+        this.solicita = solicita;
+    }
+   
 }

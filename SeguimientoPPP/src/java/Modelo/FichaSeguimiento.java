@@ -14,38 +14,62 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author Alberto
  */
+@XmlRootElement
 @Entity
 @Table(name = "FichaSeguimiento")
 
 public class FichaSeguimiento implements Serializable{
+    @XmlElement
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "nroInforme")
     private int nroInforme;
+    @XmlElement
     @Basic
-    @Column(name = "nombreEmpresa")
+    @Column(name = "nroFicha")
     private int nroFicha;
+    @XmlElement
     @Basic
-    @Column(name = "nombreEmpresa")
+    @Column(name = "nombreEstudiante")
     private String nombreEstudiante;
+    @XmlElement
     @Basic
-    @Column(name = "nombreEmpresa")
+    @Column(name = "nombreDocente")
     private String nombreDocente;
+    @XmlElement
     @Basic
     @Column(name = "nombreEmpresa")
     private String nombreEmpresa;
+    @XmlElement
     @Basic
-    @Column(name = "nombreEmpresa")
+    @Column(name = "Fecha")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Calendar Fecha;
-
+    @XmlTransient
+    @ManyToOne
+    @JoinColumn(name = "esEvaluada", referencedColumnName = "codigoDocente")
+    private DocenteAsesor esEvaluada;
+    @XmlTransient
+    @ManyToOne
+    @JoinColumn(name = "esSolicitada", referencedColumnName = "codigoEstudiante")
+    private Estudiante esSolicitada;
+    @XmlTransient
+    @ManyToOne
+    @JoinColumn(name = "esEmitida", referencedColumnName = "carreraProfesional")
+    private Coordinacion esEmitida;
+    
     public FichaSeguimiento() {
     }
 
@@ -96,7 +120,29 @@ public class FichaSeguimiento implements Serializable{
     public void setFecha(Calendar Fecha) {
         this.Fecha = Fecha;
     }
-    
-    
+
+    public DocenteAsesor getEsEvaluada() {
+        return esEvaluada;
+    }
+
+    public void setEsEvaluada(DocenteAsesor esEvaluada) {
+        this.esEvaluada = esEvaluada;
+    }
+
+    public Estudiante getEsSolicitada() {
+        return esSolicitada;
+    }
+
+    public void setEsSolicitada(Estudiante esSolicitada) {
+        this.esSolicitada = esSolicitada;
+    }
+
+    public Coordinacion getEsEmitida() {
+        return esEmitida;
+    }
+
+    public void setEsEmitida(Coordinacion esEmitida) {
+        this.esEmitida = esEmitida;
+    }
     
 }
