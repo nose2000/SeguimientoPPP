@@ -6,6 +6,12 @@
 
 package Control;
 
+import Modelo.Coordinacion;
+import Modelo.DocenteAsesor;
+import Modelo.Estudiante;
+import Modelo.FichaSeguimiento;
+import Modelo.Informe;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -15,4 +21,9 @@ import javax.ejb.Local;
 @Local
 public interface ControlSeguimientoPPPLocal {
     
+    public List<Coordinacion> listarCoordinacion();
+    public List<Informe> listarInforme();
+    public List<FichaSeguimiento> listarFichaSeguimiento();
+    public List<Estudiante> listarEstudiante();
+    public List<DocenteAsesor> listarDocenteAsesor();
 }

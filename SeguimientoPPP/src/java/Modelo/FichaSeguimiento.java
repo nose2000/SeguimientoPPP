@@ -16,6 +16,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlElement;
@@ -28,6 +30,9 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @XmlRootElement
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "FichaSeguimiento.listarFichaSeguimiento",
+            query = " select u from FichaSeguimiento u" )})
 @Table(name = "FichaSeguimiento")
 
 public class FichaSeguimiento implements Serializable{
