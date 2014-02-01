@@ -32,7 +32,6 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Empresa implements Serializable{
     @XmlElement
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "codigoEmpresa")
     private String codigoEmpresa;
     @XmlElement

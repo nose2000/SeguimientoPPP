@@ -38,7 +38,6 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Coordinacion implements Serializable{
     @XmlElement
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "carreraProfesional")
     private String carreraProfesional;
     @XmlElement
