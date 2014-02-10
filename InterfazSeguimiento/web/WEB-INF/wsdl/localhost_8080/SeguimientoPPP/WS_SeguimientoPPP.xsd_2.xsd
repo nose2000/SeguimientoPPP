@@ -1,0 +1,498 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://Vista/" xmlns:ns1="http://proyecto/Modelo" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Vista/">
+
+<xs:import namespace="http://proyecto/Modelo" schemaLocation="http://localhost:8080/SeguimientoPPP/WS_SeguimientoPPP?xsd=1"/>
+
+<xs:element name="EliminarCoordinacion" type="tns:EliminarCoordinacion"/>
+
+<xs:element name="EliminarCoordinacionResponse" type="tns:EliminarCoordinacionResponse"/>
+
+<xs:element name="EliminarDocenteAsesor" type="tns:EliminarDocenteAsesor"/>
+
+<xs:element name="EliminarDocenteAsesorResponse" type="tns:EliminarDocenteAsesorResponse"/>
+
+<xs:element name="EliminarEmpresa" type="tns:EliminarEmpresa"/>
+
+<xs:element name="EliminarEmpresaResponse" type="tns:EliminarEmpresaResponse"/>
+
+<xs:element name="EliminarEstudiante" type="tns:EliminarEstudiante"/>
+
+<xs:element name="EliminarEstudianteResponse" type="tns:EliminarEstudianteResponse"/>
+
+<xs:element name="EliminarFichaSeguimiento" type="tns:EliminarFichaSeguimiento"/>
+
+<xs:element name="EliminarFichaSeguimientoResponse" type="tns:EliminarFichaSeguimientoResponse"/>
+
+<xs:element name="EliminarInforme" type="tns:EliminarInforme"/>
+
+<xs:element name="EliminarInformeResponse" type="tns:EliminarInformeResponse"/>
+
+<xs:element name="ListarCoordinacion" type="tns:ListarCoordinacion"/>
+
+<xs:element name="ListarCoordinacionResponse" type="tns:ListarCoordinacionResponse"/>
+
+<xs:element name="ListarDocenteAsesor" type="tns:ListarDocenteAsesor"/>
+
+<xs:element name="ListarDocenteAsesorResponse" type="tns:ListarDocenteAsesorResponse"/>
+
+<xs:element name="ListarEmpresa" type="tns:ListarEmpresa"/>
+
+<xs:element name="ListarEmpresaResponse" type="tns:ListarEmpresaResponse"/>
+
+<xs:element name="ListarEstudiante" type="tns:ListarEstudiante"/>
+
+<xs:element name="ListarEstudianteResponse" type="tns:ListarEstudianteResponse"/>
+
+<xs:element name="ListarFichaSeguimiento" type="tns:ListarFichaSeguimiento"/>
+
+<xs:element name="ListarFichaSeguimientoResponse" type="tns:ListarFichaSeguimientoResponse"/>
+
+<xs:element name="ListarInforme" type="tns:ListarInforme"/>
+
+<xs:element name="ListarInformeResponse" type="tns:ListarInformeResponse"/>
+
+<xs:element name="ModificarCoordinacion" type="tns:ModificarCoordinacion"/>
+
+<xs:element name="ModificarCoordinacionResponse" type="tns:ModificarCoordinacionResponse"/>
+
+<xs:element name="ModificarDocenteAsesor" type="tns:ModificarDocenteAsesor"/>
+
+<xs:element name="ModificarDocenteAsesorResponse" type="tns:ModificarDocenteAsesorResponse"/>
+
+<xs:element name="ModificarEmpresa" type="tns:ModificarEmpresa"/>
+
+<xs:element name="ModificarEmpresaResponse" type="tns:ModificarEmpresaResponse"/>
+
+<xs:element name="ModificarEstudiante" type="tns:ModificarEstudiante"/>
+
+<xs:element name="ModificarEstudianteResponse" type="tns:ModificarEstudianteResponse"/>
+
+<xs:element name="ModificarFichaSeguimiento" type="tns:ModificarFichaSeguimiento"/>
+
+<xs:element name="ModificarFichaSeguimientoResponse" type="tns:ModificarFichaSeguimientoResponse"/>
+
+<xs:element name="ModificarInforme" type="tns:ModificarInforme"/>
+
+<xs:element name="ModificarInformeResponse" type="tns:ModificarInformeResponse"/>
+
+<xs:element name="MostrarCoordinacio" type="tns:MostrarCoordinacio"/>
+
+<xs:element name="MostrarCoordinacioResponse" type="tns:MostrarCoordinacioResponse"/>
+
+<xs:element name="MostrarDocenteAsesor" type="tns:MostrarDocenteAsesor"/>
+
+<xs:element name="MostrarDocenteAsesorResponse" type="tns:MostrarDocenteAsesorResponse"/>
+
+<xs:element name="MostrarEmpresa" type="tns:MostrarEmpresa"/>
+
+<xs:element name="MostrarEmpresaResponse" type="tns:MostrarEmpresaResponse"/>
+
+<xs:element name="MostrarEstudiante" type="tns:MostrarEstudiante"/>
+
+<xs:element name="MostrarEstudianteResponse" type="tns:MostrarEstudianteResponse"/>
+
+<xs:element name="MostrarFichaSeguimiento" type="tns:MostrarFichaSeguimiento"/>
+
+<xs:element name="MostrarFichaSeguimientoResponse" type="tns:MostrarFichaSeguimientoResponse"/>
+
+<xs:element name="MostrarInforme" type="tns:MostrarInforme"/>
+
+<xs:element name="MostrarInformeResponse" type="tns:MostrarInformeResponse"/>
+
+<xs:element name="NuevoCCoordinacion" type="tns:NuevoCCoordinacion"/>
+
+<xs:element name="NuevoCCoordinacionResponse" type="tns:NuevoCCoordinacionResponse"/>
+
+<xs:element name="NuevoDocenteAsesor" type="tns:NuevoDocenteAsesor"/>
+
+<xs:element name="NuevoDocenteAsesorResponse" type="tns:NuevoDocenteAsesorResponse"/>
+
+<xs:element name="NuevoEmpresa" type="tns:NuevoEmpresa"/>
+
+<xs:element name="NuevoEmpresaResponse" type="tns:NuevoEmpresaResponse"/>
+
+<xs:element name="NuevoEstudiante" type="tns:NuevoEstudiante"/>
+
+<xs:element name="NuevoEstudianteResponse" type="tns:NuevoEstudianteResponse"/>
+
+<xs:element name="NuevoFichaSeguimiento" type="tns:NuevoFichaSeguimiento"/>
+
+<xs:element name="NuevoFichaSeguimientoResponse" type="tns:NuevoFichaSeguimientoResponse"/>
+
+<xs:element name="NuevoInforme" type="tns:NuevoInforme"/>
+
+<xs:element name="NuevoInformeResponse" type="tns:NuevoInformeResponse"/>
+
+<xs:complexType name="NuevoInforme">
+<xs:sequence>
+<xs:element name="pInforme" type="ns1:informe" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="NuevoInformeResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarFichaSeguimiento">
+<xs:sequence>
+<xs:element name="pFichaSeguimiento" type="ns1:fichaSeguimiento" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarFichaSeguimientoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarCoordinacion">
+<xs:sequence>
+<xs:element name="pCliente" type="ns1:coordinacion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarCoordinacionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ListarInforme">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ListarInformeResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:informe" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ListarEmpresa">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ListarEmpresaResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:empresa" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ListarFichaSeguimiento">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ListarFichaSeguimientoResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:fichaSeguimiento" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="NuevoEstudiante">
+<xs:sequence>
+<xs:element name="pEstudiante" type="ns1:estudiante" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="NuevoEstudianteResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarFichaSeguimiento">
+<xs:sequence>
+<xs:element name="pFichaSeguimiento" type="ns1:fichaSeguimiento" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarFichaSeguimientoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarDocenteAsesor">
+<xs:sequence>
+<xs:element name="pDocenteAsesor" type="ns1:docenteAsesor" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarDocenteAsesorResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarInforme">
+<xs:sequence>
+<xs:element name="pInforme" type="ns1:informe" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarInformeResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarInforme">
+<xs:sequence>
+<xs:element name="pInforme" type="ns1:informe" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarInformeResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="MostrarFichaSeguimiento">
+<xs:sequence>
+<xs:element name="nroInforme" type="xs:int"/>
+<xs:element name="nroFicha" type="xs:int"/>
+<xs:element name="nombreEstudiante" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreDocente" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="Fecha" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="MostrarFichaSeguimientoResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:fichaSeguimiento" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="MostrarCoordinacio">
+<xs:sequence>
+<xs:element name="carreraProfesional" type="xs:string" minOccurs="0"/>
+<xs:element name="jefeCoordinacion" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="MostrarCoordinacioResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:coordinacion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarEstudiante">
+<xs:sequence>
+<xs:element name="pEstudiante" type="ns1:estudiante" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarEstudianteResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarEmpresa">
+<xs:sequence>
+<xs:element name="pEmpresa" type="ns1:empresa" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarEmpresaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="MostrarInforme">
+<xs:sequence>
+<xs:element name="nroInforme" type="xs:int"/>
+<xs:element name="nombreEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreDocenteAsesor" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreEstudiante" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaInicioPPP" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="fechaFinPPP" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="nroCarta" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="MostrarInformeResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:informe" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ListarDocenteAsesor">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ListarDocenteAsesorResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:docenteAsesor" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarEstudiante">
+<xs:sequence>
+<xs:element name="pEstudiante" type="ns1:estudiante" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ModificarEstudianteResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarCoordinacion">
+<xs:sequence>
+<xs:element name="pCoordinacion" type="ns1:coordinacion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarCoordinacionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="MostrarEstudiante">
+<xs:sequence>
+<xs:element name="codigoEstudiante" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="carreraProfesional" type="xs:string" minOccurs="0"/>
+<xs:element name="nroCreditos" type="xs:int"/>
+<xs:element name="rankingEstudiante" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="MostrarEstudianteResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:estudiante" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="NuevoFichaSeguimiento">
+<xs:sequence>
+<xs:element name="pFichaSeguimiento" type="ns1:fichaSeguimiento" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="NuevoFichaSeguimientoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarEmpresa">
+<xs:sequence>
+<xs:element name="pEmpresa" type="ns1:empresa" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarEmpresaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="MostrarDocenteAsesor">
+<xs:sequence>
+<xs:element name="codigoDocente" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="apellidoPaterno" type="xs:string" minOccurs="0"/>
+<xs:element name="apellidoMaterno" type="xs:string" minOccurs="0"/>
+<xs:element name="carreraProfesional" type="xs:string" minOccurs="0"/>
+<xs:element name="apto" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="MostrarDocenteAsesorResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:docenteAsesor" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ListarCoordinacion">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ListarCoordinacionResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:coordinacion" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarDocenteAsesor">
+<xs:sequence>
+<xs:element name="pDocenteAsesor" type="ns1:docenteAsesor" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarDocenteAsesorResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="NuevoCCoordinacion">
+<xs:sequence>
+<xs:element name="pCoordinacion" type="ns1:coordinacion" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="NuevoCCoordinacionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="MostrarEmpresa">
+<xs:sequence>
+<xs:element name="codigoEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="tipoEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="estadoEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="rankingEmpresa" type="xs:int"/>
+<xs:element name="apto" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="MostrarEmpresaResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:empresa" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ListarEstudiante">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ListarEstudianteResponse">
+<xs:sequence>
+<xs:element name="return" type="ns1:estudiante" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="NuevoEmpresa">
+<xs:sequence>
+<xs:element name="pEmpresa" type="ns1:empresa" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="NuevoEmpresaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="NuevoDocenteAsesor">
+<xs:sequence>
+<xs:element name="pDocenteAsesor" type="ns1:docenteAsesor" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="NuevoDocenteAsesorResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

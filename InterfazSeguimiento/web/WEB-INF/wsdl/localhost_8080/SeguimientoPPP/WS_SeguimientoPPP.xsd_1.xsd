@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://proyecto/Modelo" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://proyecto/Modelo">
+
+<xs:element name="coordinacion" type="tns:coordinacion"/>
+
+<xs:element name="docenteAsesor" type="tns:docenteAsesor"/>
+
+<xs:element name="empresa" type="tns:empresa"/>
+
+<xs:element name="estudiante" type="tns:estudiante"/>
+
+<xs:element name="fichaSeguimiento" type="tns:fichaSeguimiento"/>
+
+<xs:element name="informe" type="tns:informe"/>
+
+<xs:complexType name="informe">
+<xs:sequence>
+<xs:element name="nroInforme" type="xs:int"/>
+<xs:element name="nombreEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreDocenteAsesor" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreEstudiante" type="xs:string" minOccurs="0"/>
+<xs:element name="fechaInicioPPP" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="fechaFinPPP" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="nroCarta" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="fichaSeguimiento">
+<xs:sequence>
+<xs:element name="nroInforme" type="xs:int"/>
+<xs:element name="nroFicha" type="xs:int"/>
+<xs:element name="nombreEstudiante" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreDocente" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="Fecha" type="xs:dateTime" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="coordinacion">
+<xs:sequence>
+<xs:element name="carreraProfesional" type="xs:string" minOccurs="0"/>
+<xs:element name="jefeCoordinacion" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="empresa">
+<xs:sequence>
+<xs:element name="codigoEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="nombreEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="tipoEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="estadoEmpresa" type="xs:string" minOccurs="0"/>
+<xs:element name="rankingEmpresa" type="xs:int"/>
+<xs:element name="apto" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="estudiante">
+<xs:sequence>
+<xs:element name="codigoEstudiante" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="carreraProfesional" type="xs:string" minOccurs="0"/>
+<xs:element name="nroCreditos" type="xs:int"/>
+<xs:element name="rankingEstudiante" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="docenteAsesor">
+<xs:sequence>
+<xs:element name="codigoDocente" type="xs:string" minOccurs="0"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="apellidoPaterno" type="xs:string" minOccurs="0"/>
+<xs:element name="apellidoMaterno" type="xs:string" minOccurs="0"/>
+<xs:element name="carreraProfesional" type="xs:string" minOccurs="0"/>
+<xs:element name="apto" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
