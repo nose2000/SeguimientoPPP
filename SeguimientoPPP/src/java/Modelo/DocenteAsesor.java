@@ -12,8 +12,6 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
@@ -32,8 +30,26 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @Entity
 @NamedQueries({
+    @NamedQuery(name = "DocenteAsesor.modificarDocenteAsesor",
+            query = "UPDATE DocenteAsesor d SET d.apto = :apto, d.carreraProfesional = :carreraProfesional, d.apellidoMaterno = :apellidoMaterno, d.apellidoPaterno = :apellidoPaternon, d.nombre = :nombre WHERE d.codigoDocente = :codigoDocente "),
+    @NamedQuery(name = "DocenteAsesor.mostrarDocenteAsesor",
+            query = "select d from DocenteAsesor d "
+            + "WHERE d.codigoDocente = :codigoDocente "
+            + "and d.nombre = :nombre "
+            + "and d.apellidoPaterno = :apellidoPaterno "
+            + "and d.apellidoMaterno = :apellidoMaterno "
+            + "and d.carreraProfesional = :carreraProfesional "
+            + "and d.apto = :apto "),
+    @NamedQuery(name = "DocenteAsesor.eliminarDocenteAsesor",
+            query = "DELETE FROM DocenteAsesor d "
+            + "WHERE d.codigoDocente = :codigoDocente "
+            + "and d.nombre = :nombre "
+            + "and d.apellidoPaterno = :apellidoPaterno "
+            + "and d.apellidoMaterno = :apellidoMaterno "
+            + "and d.carreraProfesional = :carreraProfesional "
+            + "and d.apto = :apto "),
     @NamedQuery(name = "DocenteAsesor.listarDocenteAsesor",
-            query = " select u from DocenteAsesor u" )})
+            query = " select d from DocenteAsesor d" )})
 @Table(name = "DocenteAsesor")
 
 public class DocenteAsesor implements Serializable{
@@ -55,8 +71,8 @@ public class DocenteAsesor implements Serializable{
     private String apellidoMaterno;
     @XmlElement
     @Basic
-    @Column(name = "carreraProfecional")
-    private String carreraProfecional;
+    @Column(name = "carreraProfesional")
+    private String carreraProfesional;
     @XmlElement
     @Basic
     @Column(name = "apto")
@@ -104,12 +120,12 @@ public class DocenteAsesor implements Serializable{
         this.apellidoMaterno = apellidoMaterno;
     }
 
-    public String getCarreraProfecional() {
-        return carreraProfecional;
+    public String getCarreraProfesional() {
+        return carreraProfesional;
     }
 
-    public void setCarreraProfecional(String carreraProfecional) {
-        this.carreraProfecional = carreraProfecional;
+    public void setCarreraProfesional(String carreraProfesional) {
+        this.carreraProfesional = carreraProfesional;
     }
 
     public boolean isApto() {

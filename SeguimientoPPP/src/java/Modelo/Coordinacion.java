@@ -12,8 +12,6 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -31,8 +29,18 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @Entity
 @NamedQueries({
+    @NamedQuery(name = "Coordinacion.modificarCoordinacion",
+            query = "UPDATE Coordinacion c SET c.jefeCoordinacion = :jefeCoordinacion WHERE c.carreraProfesional = :carreraProfesional "),
+    @NamedQuery(name = "Coordinacion.mostrarCoordinacion",
+            query = "select c from Coordinacion c "
+            + "WHERE c.carreraProfesional = :carreraProfesional "
+            + "and c.jefeCoordinacion = :jefeCoordinacion "),
+    @NamedQuery(name = "Coordinacion.eliminarCoordinacion",
+            query = "DELETE FROM Coordinacion c "
+           + "WHERE c.carreraProfesional = :carreraProfesional "
+           + "and c.jefeCoordinacion = :jefeCoordinacion "),
     @NamedQuery(name = "Coordinacion.listarCoordinacion",
-            query = " select u from Coordinacion u" )})
+            query = "select c from Coordinacion c")})
 @Table(name = "Coordinacion")
 
 public class Coordinacion implements Serializable{

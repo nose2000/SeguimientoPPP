@@ -10,11 +10,11 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlElement;
@@ -27,6 +27,27 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @XmlRootElement
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "Empresa.modificarEmpresa",
+            query = "UPDATE Empresa e SET e.apto = :apto, e.rankingEmpresa = :rankingEmpresa, e.estadoEmpresa = :estadoEmpresa, e.tipoEmpresa = :tipoEmpresa, e.nombreEmpresa = :nombreEmpresa WHERE e.codigoEmpresa = :codigoEmpresa "),
+    @NamedQuery(name = "Empresa.mostrarEmpresa",
+            query = "select e from Empresa e "
+            + "WHERE e.codigoEmpresa = :codigoEmpresa "
+            + "and e.nombreEmpresa = :nombreEmpresa "
+            + "and e.tipoEmpresa = :tipoEmpresa "
+            + "and e.estadoEmpresa = :estadoEmpresa "
+            + "and e.rankingEmpresa = :rankingEmpresa "
+            + "and e.apto = :apto "),
+    @NamedQuery(name = "Empresa.eliminarEmpresa",
+            query = "DELETE FROM Empresa e "
+             + "WHERE e.codigoEmpresa = :codigoEmpresa "
+            + "and e.nombreEmpresa = :nombreEmpresa "
+            + "and e.tipoEmpresa = :tipoEmpresa "
+            + "and e.estadoEmpresa = :estadoEmpresa "
+            + "and e.rankingEmpresa = :rankingEmpresa "
+            + "and e.apto = :apto "),
+    @NamedQuery(name = "Empresa.listarEmpresa",
+            query = " select e from Empresa e" )})
 @Table(name = "Empresa")
 
 public class Empresa implements Serializable{
@@ -40,8 +61,8 @@ public class Empresa implements Serializable{
     private String nombreEmpresa;
     @XmlElement
     @Basic
-    @Column(name = "tipoEmresa")
-    private String tipoEmresa;
+    @Column(name = "tipoEmpresa")
+    private String tipoEmpresa;
     @XmlElement
     @Basic
     @Column(name = "estadoEmpresa")
@@ -81,12 +102,12 @@ public class Empresa implements Serializable{
         this.nombreEmpresa = nombreEmpresa;
     }
 
-    public String getTipoEmresa() {
-        return tipoEmresa;
+    public String getTipoEmpresa() {
+        return tipoEmpresa;
     }
 
-    public void setTipoEmresa(String tipoEmresa) {
-        this.tipoEmresa = tipoEmresa;
+    public void setTipoEmpresa(String tipoEmpresa) {
+        this.tipoEmpresa = tipoEmpresa;
     }
 
     public String getEstadoEmpresa() {

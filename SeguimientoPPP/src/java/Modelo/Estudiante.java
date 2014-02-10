@@ -12,8 +12,6 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -30,8 +28,24 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @Entity
 @NamedQueries({
+    @NamedQuery(name = "Estudiante.modificarEstudiante",
+            query = "UPDATE Estudiante e SET e.rankingEstudiante = :rankingEstudiante, e.nroCreditos = :nroCreditos, e.carreraProfesional = :carreraProfesional, e.nombre = :nombre WHERE e.codigoEstudiante = :codigoEstudiante "),
+    @NamedQuery(name = "Estudiante.mostrarEstudiante",
+            query = "select e from Estudiante e "
+            + "WHERE e.codigoEstudiante = :codigoEstudiante "
+            + "and e.nombre = :nombre "
+            + "and e.carreraProfesional = :carreraProfesional "
+            + "and e.nroCreditos = :nroCreditos "
+            + "and e.rankingEstudiante = :rankingEstudiante "),
+    @NamedQuery(name = "Estudiante.eliminarEstudiante",
+            query = "DELETE FROM Estudiante e "
+            + "WHERE e.codigoEstudiante = :codigoEstudiante "
+            + "and e.nombre = :nombre "
+            + "and e.carreraProfesional = :carreraProfesional "
+            + "and e.nroCreditos = :nroCreditos "
+            + "and e.rankingEstudiante = :rankingEstudiante "),
     @NamedQuery(name = "Estudiante.listarEstudiante",
-            query = " select u from Estudiante u" )})
+            query = " select e from Estudiante e" )})
 @Table(name = "Estudiante")
 
 public class Estudiante implements Serializable {

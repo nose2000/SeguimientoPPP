@@ -31,8 +31,26 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @Entity
 @NamedQueries({
+    @NamedQuery(name = "FichaSeguimiento.modificarFichaSeguimiento",
+            query = "UPDATE FichaSeguimiento f SET f.Fecha = :Fecha, f.nombreEmpresa = :nombreEmpresa, f.nombreDocente = :nombreDocente, f.nombreEstudiante = :nombreEstudiante, f.nroFicha = :nroFicha WHERE f.nroInforme = :nroInforme "),
+    @NamedQuery(name = "FichaSeguimiento.mostrarFichaSeguimiento",
+            query = "select f from FichaSeguimiento f "
+            + "WHERE f.nroInforme = :nroInforme "
+            + "and f.nroFicha = :nroFicha "
+            + "and f.nombreEstudiante = :nombreEstudiante "
+            + "and f.nombreDocente = :nombreDocente "
+            + "and f.nombreEmpresa = :nombreEmpresa "
+            + "and f.Fecha = :Fecha "),
+    @NamedQuery(name = "FichaSeguimiento.eliminarFichaSeguimiento",
+            query = "DELETE FROM FichaSeguimiento f "
+            + "WHERE f.nroInforme = :nroInforme "
+            + "and f.nroFicha = :nroFicha "
+            + "and f.nombreEstudiante = :nombreEstudiante "
+            + "and f.nombreDocente = :nombreDocente "
+            + "and f.nombreEmpresa = :nombreEmpresa "
+            + "and f.Fecha = :Fecha "),
     @NamedQuery(name = "FichaSeguimiento.listarFichaSeguimiento",
-            query = " select u from FichaSeguimiento u" )})
+            query = " select f from FichaSeguimiento f" )})
 @Table(name = "FichaSeguimiento")
 
 public class FichaSeguimiento implements Serializable{

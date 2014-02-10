@@ -31,8 +31,28 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @Entity
 @NamedQueries({
+    @NamedQuery(name = "Informe.modificarInforme",
+            query = "UPDATE Informe i SET i.nroCarta = :nroCarta, i.fechaFinPPP = :fechaFinPPP, i.fechaInicioPPP = :fechaInicioPPP, i.nombreEstudiante = :nombreEstudiante, i.nombreDocenteAsesor = :nombreDocenteAsesor, i.nombreEmpresa = :nombreEmpresa WHERE i.nroInforme = :nroInforme "),
+    @NamedQuery(name = "Informe.mostrarInforme",
+            query = "select i from Informe i "
+            + "WHERE i.nroInforme = :nroInforme "
+            + "and i.nombreEmpresa = :nombreEmpresa "
+            + "and i.nombreDocenteAsesor = :nombreDocenteAsesor "
+            + "and i.nombreEstudiante = :nombreEstudiante "
+            + "and i.fechaInicioPPP = :fechaInicioPPP "
+            + "and i.fechaFinPPP = :fechaFinPPP "
+            + "and i.nroCarta = :nroCarta "),
+    @NamedQuery(name = "Informe.eliminarInforme",
+            query = "DELETE FROM Informe i "
+            + "WHERE i.nroInforme = :nroInforme "
+            + "and i.nombreEmpresa = :nombreEmpresa "
+            + "and i.nombreDocenteAsesor = :nombreDocenteAsesor "
+            + "and i.nombreEstudiante = :nombreEstudiante "
+            + "and i.fechaInicioPPP = :fechaInicioPPP "
+            + "and i.fechaFinPPP = :fechaFinPPP "
+            + "and i.nroCarta = :nroCarta "),
     @NamedQuery(name = "Informe.listarInforme",
-            query = " select u from Informe u" )})
+            query = " select i from Informe i" )})
 @Table(name = "Informe")
 
 public class Informe implements Serializable{
