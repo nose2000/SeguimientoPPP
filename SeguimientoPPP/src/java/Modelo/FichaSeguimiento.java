@@ -11,18 +11,13 @@ import java.util.Calendar;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -32,140 +27,216 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @NamedQueries({
     @NamedQuery(name = "FichaSeguimiento.modificarFichaSeguimiento",
-            query = "UPDATE FichaSeguimiento f SET f.Fecha = :Fecha, f.nombreEmpresa = :nombreEmpresa, f.nombreDocente = :nombreDocente, f.nombreEstudiante = :nombreEstudiante, f.nroFicha = :nroFicha WHERE f.nroInforme = :nroInforme "),
+            query = "UPDATE FichaSeguimiento f SET f.fechaEntrega = :fechaEntrega, f.promedioFinal = :promedioFinal, f.nota = :nota, f.aportes = :aportes, f.investigacion = :investigacion, f.tratoSocial = :tratoSocial, f.logrosObjetivos = :logrosObjetivos, f.disciplina = :disciplina, f.eficiencia = :eficiencia, f.iniciativa = :iniciativa, f.responsabilidad = :responsabilidad, f.puntualidad = :puntualidad, f.objetivos = :objetivos, f.descripcionActividad = :descripcionActividad WHERE f.numeroFichaSeguimiento = :numeroFichaSeguimiento "),
     @NamedQuery(name = "FichaSeguimiento.mostrarFichaSeguimiento",
             query = "select f from FichaSeguimiento f "
-            + "WHERE f.nroInforme = :nroInforme "
-            + "and f.nroFicha = :nroFicha "
-            + "and f.nombreEstudiante = :nombreEstudiante "
-            + "and f.nombreDocente = :nombreDocente "
-            + "and f.nombreEmpresa = :nombreEmpresa "
-            + "and f.Fecha = :Fecha "),
+            + "WHERE f.numeroFichaSeguimiento = :numeroFichaSeguimiento "
+            + "and f.descripcionActividad = :descripcionActividad "
+            + "and f.objetivos = :objetivos "
+            + "and f.puntualidad = :puntualidad "
+            + "and f.reponsabilidad = :responsabilidad "
+            + "and f.iniciativa = :iniciativa "
+            + "and f.eficiencia = :eficiencia "
+            + "and f.disciplina = :disciplina "
+            + "and f.logrosObjetivos = :logrosObjetivos "
+            + "and f.trabajoSocial = :trabajoSocial " 
+            + "and f.investigacion = :investigacion "
+            + "and f.aportes = :aportes "
+            + "and f.nota = :nota "
+            + "and f.promedioFinal = :promedioFinal "
+            + "and f.fechaEntrega = :fechaEntrega "),
     @NamedQuery(name = "FichaSeguimiento.eliminarFichaSeguimiento",
             query = "DELETE FROM FichaSeguimiento f "
-            + "WHERE f.nroInforme = :nroInforme "
-            + "and f.nroFicha = :nroFicha "
-            + "and f.nombreEstudiante = :nombreEstudiante "
-            + "and f.nombreDocente = :nombreDocente "
-            + "and f.nombreEmpresa = :nombreEmpresa "
-            + "and f.Fecha = :Fecha "),
+            + "WHERE f.numeroFichaSeguimiento = :numeroFichaSeguimiento "
+            + "and f.fechaEntrega = :fechaEntrega "),
     @NamedQuery(name = "FichaSeguimiento.listarFichaSeguimiento",
             query = " select f from FichaSeguimiento f" )})
 @Table(name = "FichaSeguimiento")
 
-public class FichaSeguimiento implements Serializable{
+
+public class FichaSeguimiento implements Serializable {
     @XmlElement
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "nroInforme")
-    private int nroInforme;
+    @Column (name = "numeroFichaSeguimiento")
+    private int numeroFichaSeguimiento;
     @XmlElement
     @Basic
-    @Column(name = "nroFicha")
-    private int nroFicha;
+    @Column(name = "descripcionActividad")
+    private String descripcionActividad;
     @XmlElement
     @Basic
-    @Column(name = "nombreEstudiante")
-    private String nombreEstudiante;
+    @Column(name = "objetivos")
+    private String objetivos;
     @XmlElement
     @Basic
-    @Column(name = "nombreDocente")
-    private String nombreDocente;
+    @Column(name = "puntualidad")
+    private int puntualidad;
     @XmlElement
     @Basic
-    @Column(name = "nombreEmpresa")
-    private String nombreEmpresa;
+    @Column(name = "responsabilidad")
+    private int responsabilidad;
     @XmlElement
     @Basic
-    @Column(name = "Fecha")
+    @Column(name = "iniciativa")
+    private int iniciativa;
+    @XmlElement
+    @Basic
+    @Column(name = "eficiencia")
+    private int eficiencia;
+    @XmlElement
+    @Basic
+    @Column(name = "disciplina")
+    private int disciplina;
+    @XmlElement
+    @Basic
+    @Column(name = "logrosObjetivos")
+    private int logrosObjetivos;
+    @XmlElement
+    @Basic
+    @Column(name = "tratoSocial")
+    private int tratoSocial;
+    @XmlElement
+    @Basic
+    @Column(name = "investigacion")
+    private int investigacion;
+    @XmlElement
+    @Basic
+    @Column(name = "aportes")
+    private int aportes;
+    @XmlElement
+    @Basic
+    @Column(name = "nota")
+    private int nota;
+    @XmlElement
+    @Basic
+    @Column(name = "promedioFinal")
+    private int promedioFinal;
+    @XmlElement
+    @Basic
+    @Column(name = "fechaEntrega")
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Calendar Fecha;
-    @XmlTransient
-    @ManyToOne
-    @JoinColumn(name = "esEvaluada", referencedColumnName = "codigoDocente")
-    private DocenteAsesor esEvaluada;
-    @XmlTransient
-    @ManyToOne
-    @JoinColumn(name = "esSolicitada", referencedColumnName = "codigoEstudiante")
-    private Estudiante esSolicitada;
-    @XmlTransient
-    @ManyToOne
-    @JoinColumn(name = "esEmitida", referencedColumnName = "carreraProfesional")
-    private Coordinacion esEmitida;
-    
+    private Calendar fechaEntrega;
+
     public FichaSeguimiento() {
     }
 
-    public int getNroInforme() {
-        return nroInforme;
+    public int getNumeroFichaSeguimiento() {
+        return numeroFichaSeguimiento;
     }
 
-    public void setNroInforme(int nroInforme) {
-        this.nroInforme = nroInforme;
+    public void setNumeroFichaSeguimiento(int numeroFichaSeguimiento) {
+        this.numeroFichaSeguimiento = numeroFichaSeguimiento;
     }
 
-    public int getNroFicha() {
-        return nroFicha;
+    public String getDescripcionActividad() {
+        return descripcionActividad;
     }
 
-    public void setNroFicha(int nroFicha) {
-        this.nroFicha = nroFicha;
+    public void setDescripcionActividad(String descripcionActividad) {
+        this.descripcionActividad = descripcionActividad;
     }
 
-    public String getNombreEstudiante() {
-        return nombreEstudiante;
+    public String getObjetivos() {
+        return objetivos;
     }
 
-    public void setNombreEstudiante(String nombreEstudiante) {
-        this.nombreEstudiante = nombreEstudiante;
+    public void setObjetivos(String objetivos) {
+        this.objetivos = objetivos;
     }
 
-    public String getNombreDocente() {
-        return nombreDocente;
+    public int getPuntualidad() {
+        return puntualidad;
     }
 
-    public void setNombreDocente(String nombreDocente) {
-        this.nombreDocente = nombreDocente;
+    public void setPuntualidad(int puntualidad) {
+        this.puntualidad = puntualidad;
     }
 
-    public String getNombreEmpresa() {
-        return nombreEmpresa;
+    public int getResponsabilidad() {
+        return responsabilidad;
     }
 
-    public void setNombreEmpresa(String nombreEmpresa) {
-        this.nombreEmpresa = nombreEmpresa;
+    public void setResponsabilidad(int responsabilidad) {
+        this.responsabilidad = responsabilidad;
     }
 
-    public Calendar getFecha() {
-        return Fecha;
+    public int getIniciativa() {
+        return iniciativa;
     }
 
-    public void setFecha(Calendar Fecha) {
-        this.Fecha = Fecha;
+    public void setIniciativa(int iniciativa) {
+        this.iniciativa = iniciativa;
     }
 
-    public DocenteAsesor getEsEvaluada() {
-        return esEvaluada;
+    public int getEficiencia() {
+        return eficiencia;
     }
 
-    public void setEsEvaluada(DocenteAsesor esEvaluada) {
-        this.esEvaluada = esEvaluada;
+    public void setEficiencia(int eficiencia) {
+        this.eficiencia = eficiencia;
     }
 
-    public Estudiante getEsSolicitada() {
-        return esSolicitada;
+    public int getDisciplina() {
+        return disciplina;
     }
 
-    public void setEsSolicitada(Estudiante esSolicitada) {
-        this.esSolicitada = esSolicitada;
+    public void setDisciplina(int disciplina) {
+        this.disciplina = disciplina;
     }
 
-    public Coordinacion getEsEmitida() {
-        return esEmitida;
+    public int getLogrosObjetivos() {
+        return logrosObjetivos;
     }
 
-    public void setEsEmitida(Coordinacion esEmitida) {
-        this.esEmitida = esEmitida;
+    public void setLogrosObjetivos(int logrosObjetivos) {
+        this.logrosObjetivos = logrosObjetivos;
     }
-    
+
+    public int getTratoSocial() {
+        return tratoSocial;
+    }
+
+    public void setTratoSocial(int tratoSocial) {
+        this.tratoSocial = tratoSocial;
+    }
+
+    public int getInvestigacion() {
+        return investigacion;
+    }
+
+    public void setInvestigacion(int investigacion) {
+        this.investigacion = investigacion;
+    }
+
+    public int getAportes() {
+        return aportes;
+    }
+
+    public void setAportes(int aportes) {
+        this.aportes = aportes;
+    }
+
+    public int getNota() {
+        return nota;
+    }
+
+    public void setNota(int nota) {
+        this.nota = nota;
+    }
+
+    public int getPromedioFinal() {
+        return promedioFinal;
+    }
+
+    public void setPromedioFinal(int promedioFinal) {
+        this.promedioFinal = promedioFinal;
+    }
+
+    public Calendar getFechaEntrega() {
+        return fechaEntrega;
+    }
+
+    public void setFechaEntrega(Calendar fechaEntrega) {
+        this.fechaEntrega = fechaEntrega;
+    }
 }
